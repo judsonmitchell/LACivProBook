@@ -5,22 +5,12 @@ LACivProBook aims to replace West's big and expensive handbook of Louisiana
 civil procedure laws with a free, digital alternative.
 
 **This branch** contains a Web SQL version of the CivProBook for usage with PhoneGap applications.  Because of the
-large size  of the data, Web Sql is the only storage option available.  The desktop branch uses
-an in-memory datastore ([jlinq](http://hugoware.net/Projects/jlinq)).
+large size  of the data, Web Sql is the only storage option available.  The desktop branch (the **gh-pages** branch  uses
+an in-memory datastore ([jlinq](http://hugoware.net/Projects/jlinq)).  
 
 A desktop browser demo can be found [here](http://judsonmitchell.github.io/LACrimBook/).
 
 LACivProBook was created as a part of the [Technology and Legal Innovation Clinic](http://loyolalawtech.org) of [Loyola College of Law, New Orleans](http://law.loyno.edu).
-=======
-* [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
-* [Twitter Bootstrap](https://github.com/twitter/bootstrap.git)
-* [Initializr](http://www.initializr.com/)
-
-View a working instance of this project [here](http://judsonmitchell.github.io/LACivProBook/).
-
-LACivProBook was created as a part of the [Technology and Legal Innovation](http://loyolalawtech.org) of 
-[Loyola College of Law, New Orleans](http://law.loyno.edu).
->>>>>>> gh-pages
 
 ##License (MIT)
 
