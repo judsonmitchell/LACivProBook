@@ -11,6 +11,16 @@ an in-memory datastore ([jlinq](http://hugoware.net/Projects/jlinq)).
 A desktop browser demo can be found [here](http://judsonmitchell.github.io/LACrimBook/).
 
 LACrimBook was created as a part of the [Technology and Legal Innovation Clinic](http://loyolalawtech.org) of [Loyola College of Law, New Orleans](http://law.loyno.edu).
+=======
+* [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
+* [Twitter Bootstrap](https://github.com/twitter/bootstrap.git)
+* [Initializr](http://www.initializr.com/)
+
+View a working instance of this project [here](http://judsonmitchell.github.io/LACrimBook/).
+
+LACrimBook was created as a part of the [Technology and Legal Innovation](http://loyolalawtech.org) of 
+[Loyola College of Law, New Orleans](http://law.loyno.edu).
+>>>>>>> gh-pages
 
 ##License (MIT)
 
