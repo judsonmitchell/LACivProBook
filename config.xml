@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "org.loyolalawtech.crimbook"
+        id          = "org.loyolalawtech.civprobook"
         versionCode = "8"
         version     = "2.4.9">
 
     <!-- versionCode is optional and Android only -->
 
-    <name>LACrimBook</name>
+    <name>LACivProBook</name>
 
-    <description>LACrimBook aims to replace West's big and expensive handbook of criminal laws with a free, digital alternative. </description>
+    <description>LACivProBook aims to replace West's big and expensive handbook of civil procedure laws with a free, digital alternative. </description>
 
     <author href="http://loyolalawtech.org" email="judson@loyolalawtech.org">
         Judson Mitchell
