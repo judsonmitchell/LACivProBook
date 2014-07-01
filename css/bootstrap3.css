@@ -293,7 +293,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #0059b3;
+  color:#1d480e;
   text-decoration: underline;
 }
 a:focus {
@@ -4065,7 +4065,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #006ddb;
+  border-color: #35831a;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
@@ -4463,12 +4463,12 @@ a.thumbnail.active {
   color: #e6e6e6;
 }
 .alert-info {
-  background-color: #9954bb;
-  border-color: #7643a8;
+  background-color: #d83f4c;
+  border-color: ##ae222e;
   color: #ffffff;
 }
 .alert-info hr {
-  border-top-color: #693c96;
+  border-top-color: #d83f4c
 }
 .alert-info .alert-link {
   color: #e6e6e6;
