@@ -2,20 +2,23 @@
 var State,
     db,
     History = window.History,
-    appName = 'LACrimBook',
-    dbName = 'CrimLaws',
+    appName = 'LACivProBook',
+    dbName = 'CivProLaws',
     latestDbVersion = '1.1', //Change this on update
     lawSections = [          //Corresponds to West thumb index;
-    {'name':'Title 14', 'start': 'RS 000014' },
-    {'name':'Title 15', 'start': 'RS 000015' },
-    {'name':'Title 32', 'start': 'RS 000032' },
+    {'name':'Code of Civil Procedure', 'start': 'CCP' },
+    {'name':'Title 1', 'start': 'RS 000001' },
+    {'name':'Title 9', 'start': 'RS 000009' },
+    {'name':'Title 12', 'start': 'RS 000012' },
+    {'name':'Title 13', 'start': 'RS 000013' },
+    {'name':'Title 22', 'start': 'RS 000022' },
+    {'name':'Title 23', 'start': 'RS 000023' },
+    {'name':'Title 35', 'start': 'RS 000035' },
+    {'name':'Title 39', 'start': 'RS 000039' },
     {'name':'Title 40', 'start': 'RS 000040' },
-    {'name':'Title 46', 'start': 'RS 000046' },
-    {'name':'Title 56', 'start': 'RS 000056' },
-    {'name':'Code of Criminal Procedure', 'start': 'CCRP' },
+    {'name':'Civil Code', 'start': 'CC' },
     {'name':'Code of Evidence', 'start': 'CE' },
-    {'name':'Childrens Code', 'start': 'CHC' },
-    {'name':'Constitution', 'start': 'CONST' }
+    {'name':'Childrens Code', 'start': 'CHC' }
 ],
 //Change content depending on state
 updateContent = function(State,callback) {
@@ -226,7 +229,7 @@ init = function () {
             console.log('rowsAffected: ' + results.rowsAffected + ' -- should be 1');
         };
 
-        db = window.openDatabase(dbName, '', 'La. Crim Book 6-2014',2 * 1024 * 1024);
+        db = window.openDatabase(dbName, '', dbName ,2 * 1024 * 1024);
 
         if (db.version !== latestDbVersion){
 
@@ -364,4 +367,5 @@ init = function () {
 
 };
 
-document.addEventListener('deviceready', init, false);
+//document.addEventListener('deviceready', init, false);
+$(document).ready(function () {init();});
