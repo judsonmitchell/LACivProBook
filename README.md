@@ -1,30 +1,30 @@
-LACrimBook
+LACivProBook
 ===============
 
-LACrimBook aims to replace West's big and expensive handbook of Louisiana 
-criminal laws with a free, digital alternative.
+LACivProBook aims to replace West's big and expensive handbook of Louisiana 
+civil procedure laws with a free, digital alternative.
 
-**This branch** contains a Web SQL version of the CrimBook for usage with PhoneGap applications.  Because of the
-large size (approx 7MBs) of the data, Web Sql is the only storage option available.  The desktop branch uses
+**This branch** contains a Web SQL version of the CivProBook for usage with PhoneGap applications.  Because of the
+large size  of the data, Web Sql is the only storage option available.  The desktop branch uses
 an in-memory datastore ([jlinq](http://hugoware.net/Projects/jlinq)).
 
 A desktop browser demo can be found [here](http://judsonmitchell.github.io/LACrimBook/).
 
-LACrimBook was created as a part of the [Technology and Legal Innovation Clinic](http://loyolalawtech.org) of [Loyola College of Law, New Orleans](http://law.loyno.edu).
+LACivProBook was created as a part of the [Technology and Legal Innovation Clinic](http://loyolalawtech.org) of [Loyola College of Law, New Orleans](http://law.loyno.edu).
 =======
 * [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 * [Twitter Bootstrap](https://github.com/twitter/bootstrap.git)
 * [Initializr](http://www.initializr.com/)
 
-View a working instance of this project [here](http://judsonmitchell.github.io/LACrimBook/).
+View a working instance of this project [here](http://judsonmitchell.github.io/LACivProBook/).
 
-LACrimBook was created as a part of the [Technology and Legal Innovation](http://loyolalawtech.org) of 
+LACivProBook was created as a part of the [Technology and Legal Innovation](http://loyolalawtech.org) of 
 [Loyola College of Law, New Orleans](http://law.loyno.edu).
 >>>>>>> gh-pages
 
 ##License (MIT)
 
-Copyright (c) 2013 Judson Mitchell, Marc Florman
+Copyright (c) 2014 Judson Mitchell, Marc Florman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
