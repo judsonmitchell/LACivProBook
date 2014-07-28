@@ -6,7 +6,7 @@ civil procedure laws with a free, digital alternative.
 
 **This branch** contains a Web SQL version of the CivProBook for usage with PhoneGap applications.  Because of the
 large size  of the data, Web Sql is the only storage option available.  The desktop branch (the **gh-pages** branch)  uses
-an in-memory datastore ([jlinq](http://hugoware.net/Projects/jlinq)).  A desktop browser demo can be found [here](http://judsonmitchell.github.io/LACrimBook/).
+an in-memory datastore ([jlinq](http://hugoware.net/Projects/jlinq)).  A desktop browser demo can be found [here](http://judsonmitchell.github.io/LACivProBBook/).
 
 LACivProBook was created as a part of the [Technology and Legal Innovation Clinic](http://loyolalawtech.org) of [Loyola College of Law, New Orleans](http://law.loyno.edu).
 
