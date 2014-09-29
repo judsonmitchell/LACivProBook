@@ -405,5 +405,5 @@ init = function () {
     });
 };
 
-//document.addEventListener('deviceready', init, false);
-$(document).ready(function () {init();});
+document.addEventListener('deviceready', init, false);
+//$(document).ready(function () {init();});
