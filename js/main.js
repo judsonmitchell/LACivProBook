@@ -5,6 +5,7 @@ var State,
     appName = 'LACivProBook',
     dbName = 'CivProLaws',
     latestDbVersion = '1.1', //Change this on update
+    pageDepth = 1,
     lawSections = [          //Corresponds to West thumb index;
     {'name':'Code of Civil Procedure', 'start': 'CCP' },
     {'name':'Title 1', 'start': 'RS 000001' },
@@ -46,6 +47,7 @@ updateContent = function(State,callback) {
     } else {
         $('#app-name').text(appName);
         $('.navbar-brand i').hide();
+        $(document).scrollTop(0); //Always scroll to top on main page
     }
 
     switch (view) {
@@ -61,6 +63,7 @@ updateContent = function(State,callback) {
                 items += '</div>';
                 $('.panel').html(items);
                 $(document).scrollTop(pos);
+                pageDepth = 1;
             },function (tx, err){
                 $('.alert').html('Error: ' + err.message).show();
             }), function onReadError(tx,err){
@@ -138,8 +141,10 @@ updateContent = function(State,callback) {
             };
             db.readTransaction(function (tx){
                 for (var i = 0; i < localStorage.length; i++) {
-                    var key = localStorage.key(i);
-                    tx.executeSql(q,[key],getFavs,favErr);
+                    if (!isNaN(localStorage.key(i))){
+                        var key = localStorage.key(i);
+                        tx.executeSql(q,[key],getFavs,favErr);
+                    }
                 }
             },
             function fail(tx,err){
@@ -188,22 +193,45 @@ updateFavoritesList = function () {
 
         if (localStorage.length > 4) {
             for (i = 0; i < 5; i++) {
-                key = localStorage.key(i);
-                value = localStorage.getItem(key);
-                favList += '<li><a class="fav-link" href="#" data-id="' + key + '">' + value + '</a></li>';
+                if (!isNaN(localStorage.key(i))){
+                    key = localStorage.key(i);
+                    value = localStorage.getItem(key);
+                    favList += '<li><a class="fav-link" href="#" data-id="' + key + '">' + value + '</a></li>';
+                }
             }
             favList += '<li class="divider"></li><li><a class="fav-all" href="#">View All</a></li>';
         }
         else {
             for (i = 0; i < localStorage.length; i++) {
-                key = localStorage.key(i);
-                value = localStorage.getItem(key);
-                favList += '<li><a class="fav-link" href="#" data-id="' + key + '">' + value + '</a></li>';
+                if (!isNaN(localStorage.key(i))){
+                    key = localStorage.key(i);
+                    value = localStorage.getItem(key);
+                    favList += '<li><a class="fav-link" href="#" data-id="' + key + '">' + value + '</a></li>';
+                }
             }
         }
 
         $('.dropdown-menu').html(favList);
     }
+},
+
+getQueryVariable = function (variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) === variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+},
+
+browse = function (target, direction) {
+
+    direction === 'forward' ?  target++ : target--;
+    History.pushState({type: 'law', id: target}, target, '?target=' + target + '&view=law');
+    pageDepth++;
 },
 
 init = function () {
@@ -345,18 +373,17 @@ init = function () {
 
     $('.navbar-headnav').on('click', 'a.go-home', function (event) {
         event.preventDefault();
-        var scroll = '0';
-        //History.pushState({type: 'home', id: null, pos: scroll}, 'Home', '/');
-        History.back()
+        //Use window.history here to avoid jquery.history plugin
+        window.history.go(Math.abs(pageDepth) * -1);
     });
 
     $('.main').swipe({
         swipe:function(event, direction, distance, duration, fingerCount) {
             if (direction === 'right'){
-                History.back();
+                browse(getQueryVariable('target'),'backward');
             }
             if (direction === 'left'){
-                History.go(1);
+                browse(getQueryVariable('target'),'forward');
             }
         },
         allowPageScroll: 'vertical'
@@ -366,7 +393,17 @@ init = function () {
         FastClick.attach(document.body);
     });
 
+    if (localStorage.getItem('lacivprobook-notice-2.6.0') === null){
+        $('#update-info').load('CHANGES');
+        $('#update-info').show();
+    }
+
+    $('body').on('click', '.update-dismiss', function (event) {
+        event.preventDefault();
+        $('#update-info').remove();
+        localStorage.setItem('lacrimbook-notice-2.6.0', true);
+    });
 };
 
-document.addEventListener('deviceready', init, false);
-//$(document).ready(function () {init();});
+//document.addEventListener('deviceready', init, false);
+$(document).ready(function () {init();});
