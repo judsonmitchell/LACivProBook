@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 10
+# version  2 2015-09-06 08:25:13
 
 favicon.ico
 css/bootstrap3.css
@@ -13,15 +13,18 @@ js/vendor/jquery.history.js
 js/queryStringToJson.js
 js/snippet.js
 js/vendor/jquery.touchSwipe.min.js
-fonts/glyphicons-halflings-regular.eot
-fonts/glyphicons-halflings-regular.svg
-fonts/glyphicons-halflings-regular.ttf
-fonts/glyphicons-halflings-regular.woff
+Font-Awesome/fonts/fontawesome-webfont.ttf
+Font-Awesome/fonts/fontawesome-webfont.woff
+Font-Awesome/fonts/fontawesome-webfont.eot
+Font-Awesome/fonts/fontawesome-webfont.svg
+Font-Awesome/fonts/FontAwesome.otf
+Font-Awesome/css/font-awesome.css
 data/data.json
 http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js
 http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700
 http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff
 http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff
+index.html
 about.html
 img/mitchell.jpg
 img/florman.jpg
