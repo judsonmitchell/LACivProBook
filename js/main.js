@@ -401,7 +401,7 @@ init = function () {
     $('body').on('click', '.update-dismiss', function (event) {
         event.preventDefault();
         $('#update-info').remove();
-        localStorage.setItem('lacrimbook-notice-2.8.0', true);
+        localStorage.setItem('lacivprobook-notice-2.8.0', true);
     });
 };
 
