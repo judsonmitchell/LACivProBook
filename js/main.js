@@ -4,7 +4,7 @@ var State,
     History = window.History,
     appName = 'LACivProBook',
     dbName = 'CivProLaws',
-    latestDbVersion = '2.8', //Change this on update
+    latestDbVersion = '2.9', //Change this on update
     pageDepth = 1,
     lawSections = [          //Corresponds to West thumb index;
     {'name':'Code of Civil Procedure', 'start': 'CCP' },
@@ -393,7 +393,7 @@ init = function () {
         FastClick.attach(document.body);
     });
 
-    if (localStorage.getItem('lacivprobook-notice-2.8.0') === null){
+    if (localStorage.getItem('lacivprobook-notice-2.9.0') === null){
         $('#update-info').load('CHANGES');
         $('#update-info').show();
     }
@@ -401,7 +401,7 @@ init = function () {
     $('body').on('click', '.update-dismiss', function (event) {
         event.preventDefault();
         $('#update-info').remove();
-        localStorage.setItem('lacivprobook-notice-2.8.0', true);
+        localStorage.setItem('lacivprobook-notice-2.9.0', true);
     });
 };
 
