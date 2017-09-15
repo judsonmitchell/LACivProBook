@@ -2,8 +2,8 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "org.loyolalawwtech.civprobook"
-        versionCode = "18"
-        version     = "2.9.2">
+        versionCode = "19"
+        version     = "2.10.1">
 
     <!-- versionCode is optional and Android only -->
 
@@ -16,9 +16,10 @@
     </author>
 
     <access origin="*"/>
+    <!--
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
-    <!-- <gap:plugin name="it.mobimentum.phonegapspinnerplugin" /> -->
     <gap:plugin name="org.apache.cordova.device" />
+    -->
     <plugin name="cordova-plugin-inappbrowser" />
 
     <preference name="permissions" value="none" />
