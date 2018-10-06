@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "org.loyolalawwtech.civprobook"
-        versionCode = "19"
-        version     = "2.10.1">
+        id          = "org.loyolalawtech.civprobook"
+        versionCode = "20"
+        version     = "2.12.0">
 
     <!-- versionCode is optional and Android only -->
 
@@ -24,7 +24,7 @@
 
     <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="cli-6.3.0" />         
-    <preference name="android-targetSdkVersion" value="14" />
+    <preference name="android-targetSdkVersion" value="26" />
     <preference name="BackupWebStorage" value="none"/> 
 
     <preference name="fullscreen" value="false" />           <!-- all: hides the status bar at the top of the screen -->
