@@ -1,4 +1,4 @@
-const CACHE_NAME = 'static-cache-v3.0.1';
+const CACHE_NAME = 'static-cache-v3.0.2';
 
 const FILES_TO_CACHE = [
     'index.html',
@@ -24,6 +24,7 @@ const FILES_TO_CACHE = [
     'res/icon/pwa/icon-128.png',
     'res/icon/pwa/icon-144.png',
     'res/icon/pwa/icon-152.png',
+    'res/icon/pwa/icon-180.png',
     'res/icon/pwa/icon-192.png',
     'res/icon/pwa/icon-256.png',
     'res/icon/pwa/icon-512.png'
