@@ -65,11 +65,15 @@ updateContent = function(State,callback) {
         //check to see if this law has been favorited
         var fav;
         if (localStorage.getItem(target)){
-            fav = '<a href="#" class="favorite upper-right-corner" data-state="saved" data-id="' + target +
+            fav = '<a href="#" class="sharer upper-right-corner-but-one" title="Share"' +
+            '><span class="fa fa-share-alt"></span></a>  ' +
+            '<a href="#" class="favorite upper-right-corner" data-state="saved" data-id="' + target +
             '" title="Favorite This"><span class="fa fa-star"></span></a>';
         }
         else {
-            fav = '<a href="#" class="favorite upper-right-corner" data-state="unsaved" data-id="' + target +
+            fav = '<a href="#" class="sharer upper-right-corner-but-one" title="Share"' +
+            '><span class="fa fa-share-alt"></span></a>  ' +
+            '<a href="#" class="favorite upper-right-corner" data-state="unsaved" data-id="' + target +
             '" title="Favorite This"><span class="fa fa-star-o"></span></a>';
         }
         $('title').text(laws[0].title + ' ' + laws[0].description);
@@ -312,6 +316,26 @@ init = function () {
         var scroll = '0';
     });
 
+    $('.main').on('click', 'a.sharer', function (event) {
+        event.preventDefault();
+        var lawShareTitle = $('span.lawTitle').text();
+            if (navigator.share) {
+                navigator.share({
+                    text: 'I\'ve shared a Louisiana law with you: ' +  $('span.lawTitle').text(),
+                    title: 'LaCrimBook: ' + lawShareTitle,
+                    url: window.location.href
+                })
+                .then(() => console.log('Share was successful.'))
+                .catch((error) => console.log('Sharing failed', error));
+                } else {
+                    //alert(`Your system doesn't support sharing files.`);
+                    var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
+                    var mailText = encodeURIComponent('I\'ve shared a Louisiana Law with you: ' + lawShareTitle + ' ' + window.location.href);
+                    window.open('mailto:?subject=LACrimBook&body=' + mailText, 'LACrimBook Share', windowFeatures);
+                    }
+                }
+    );
+
     $('.main').swipe({
         swipe:function(event, direction, distance, duration, fingerCount) {
             if (direction === 'right'){
@@ -324,7 +348,7 @@ init = function () {
         allowPageScroll: 'vertical'
     });
 
-    if (localStorage.getItem('lacivpro-notice-3.0') === null){
+    if (localStorage.getItem('lacivpro-notice-3.2.0') === null){
         $('#update-info').load('CHANGES');
         $('#update-info').show();
     }
@@ -332,7 +356,7 @@ init = function () {
     $('body').on('click', '.update-dismiss', function (event) {
         event.preventDefault();
         $('#update-info').remove();
-        localStorage.setItem('lacivpro-notice-3.0', true);
+        localStorage.setItem('lacivpro-notice-3.2.0', true);
     });
 };
 
