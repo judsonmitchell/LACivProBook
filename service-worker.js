@@ -1,10 +1,9 @@
-const CACHE_NAME = 'static-cache-v3.3.1';
+const CACHE_NAME = 'static-cache-v3.4.1';
 
 const FILES_TO_CACHE = [
     'index.html',
     'service-worker.js',
     'manifest.json',
-    'favicon.ico',
     'css/bootstrap3.css',
     'css/main.css',
     'js/vendor/jquery-1.9.0.min.js',
@@ -43,25 +42,43 @@ self.addEventListener('install', (evt) => {
 
 self.addEventListener('activate', (evt) => {
   console.log('[ServiceWorker] Activate');
-
+    evt.waitUntil(
+        caches.keys().then((keyList) => {
+        return Promise.all(keyList.map((key) => {
+            if (key !== CACHE_NAME) {
+            console.log('[ServiceWorker] Removing old cache', key);
+            return caches.delete(key);
+            }
+        }));
+        })
+    );
   self.clients.claim();
 });
 
 self.addEventListener('fetch', (evt) => {
   console.log('[ServiceWorker] Fetch', evt.request.url);
-   console.log(evt.request.url);
 
-    if (evt.request.mode !== 'navigate') {
-        // Not a page navigation, bail.
-        return;
-    }
-    evt.respondWith(
-        fetch(evt.request)
-            .catch(() => {
-            return caches.open(CACHE_NAME)
-                .then((cache) => {
-                    return cache.match('index.html');
-                });
-            })
-    );
+  evt.respondWith(
+    caches.match(evt.request)
+      .then(function(response) {
+        if (response) {
+          // If the file is in the cache, serve it
+          console.log('[ServiceWorker] Found ', evt.request.url, ' in cache');
+          return response;
+        }
+
+        // Otherwise, fetch the file from the network
+        console.log('[ServiceWorker] Network request for ', evt.request.url);
+        return fetch(evt.request)
+
+        // If the user is offline and the request was for a navigation request (page load)
+        // Then serve an offline page
+        .catch(function() {
+          if (evt.request.mode === 'navigate') {
+            return caches.match('index.html');
+          }
+        });
+      })
+  );
 });
+
